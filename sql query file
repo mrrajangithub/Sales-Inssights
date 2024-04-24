@@ -1,0 +1,15 @@
+SELECT * FROM sales.date;
+-- sum of transaction in 2020 of chennai market
+-- to perform this analysis step-1 join the "date" and "transaction" table and apply where condition to filter choose 2020 and chennai market
+
+select* from sales.date
+join sales.transactions on 
+transactions.order_date =date.date
+where year="2020" and market_code="mark001";
+
+-- step 2 find the sum of sales amount 
+
+select sum(sales_amount) from sales.transactions
+join sales.date on 
+transactions.order_date =date.date
+where year="2020" and market_code="mark001";
